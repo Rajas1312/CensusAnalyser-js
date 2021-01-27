@@ -1,2 +1,4 @@
 const main=require('../source/utlity')
-main.readCsv();
+const path='StateCensusData.csv'
+//main.readCsv();
+main.headerCsv(path);

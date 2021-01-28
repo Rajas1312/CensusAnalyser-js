@@ -86,6 +86,14 @@ class StateCensusAnalyser{
       callback(source[0].DensityPerSqKm)
     }
   )}
+    sortLeastPopulationDensity=(path,callback)=>{
+      csvToJason().fromFile(path).then(source=>{
+      source.sort((a, b)=>{return a.AreaInSqKm - b.AreaInSqKm}
+      );
+      fs.writeFileSync("StateCensusData.json",JSON.stringify(source,null,2))
+      callback(source[0].AreaInSqKm)
+    }
+  )}
 
 }
 module.exports=new StateCensusAnalyser();

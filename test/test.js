@@ -102,25 +102,27 @@ describe('indian state code Mocha Test',()=> {
     })
     it('given a csv file path should pass the test when the sorting is sucessfull and first entry matches',()=> {
         test.sortStateCensusInJasonAlphbetically(path,(result)=>{
-                assert.equal(result,"Andhra Pradesh")
+            assert.equal(result,"Andhra Pradesh")
         })
     })
     it('given a csv file path should pass the test when the sorting is sucessfull and first entry matches',()=> {
         test.sortStateCensusInJasonAlphbetically(path1,(result)=>{
-                assert.equal(result,"Andhra Pradesh")
+            assert.equal(result,"Andhra Pradesh")
         })
     })
     it('given a csv file path should pass the test when the sorting is sucessfull and first entry matches',()=> {
         test.sortMostPopulusToLeastPopulus(path,(result)=>{
-                assert.equal(result,199812341)
-                console.log(result)
+            assert.equal(result,199812341)
         })
     })
     it('given a csv file path should pass the test when the sorting is sucessfull and first entry matches',()=> {
         test.sortLeastPopulationDensity(path,(result)=>{
-            console.log(result)
-            assert.equal(result,52)
-                
+            assert.equal(result,52)  
+        })
+    })
+    it('given a csv file path should pass the test when the sorting is sucessfull and first entry matches',()=> {
+        test.sortLeastPopulationDensity(path,(result)=>{
+            assert.equal(result,3702)
         })
     })
 

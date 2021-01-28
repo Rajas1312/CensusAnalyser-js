@@ -3,7 +3,6 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const { delimiter } = require('path');
 const csvToJason=require('csvtojson');
-const csvtojson = require('csvtojson');
 let censusArray=[];
 let stateCodeArray=[];
 class StateCensusAnalyser{

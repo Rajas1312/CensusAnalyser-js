@@ -1,4 +1,4 @@
-const test=require('../source/utlity')
+const test=require('../source/censusanalyser')
 const path='StateCensusData.csv'
 const path1='Statecode.csv'
  let assert = require('chai').assert;
@@ -100,9 +100,15 @@ describe('indian state code Mocha Test',()=> {
             }
         })
     })
-    it('given a csv file path should pass the test when the sorting is sucessfull',()=> {
+    it('given a csv file path should pass the test when the sorting is sucessfull and first entry matches',()=> {
         test.getStateCensusInJason(path,(result)=>{
-                assert.equal(result,"Arunachal Pradesh")
+                assert.equal(result,"Andhra Pradesh")
         })
     })
+    it('given a csv file path should pass the test when the sorting is sucessfull and first entry matches',()=> {
+        test.getStateCensusInJason(path1,(result)=>{
+                assert.equal(result,"Andhra Pradesh")
+        })
+    })
+
 });

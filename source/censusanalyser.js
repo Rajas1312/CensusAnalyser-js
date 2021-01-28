@@ -59,7 +59,7 @@ class StateCensusAnalyser{
         console.log('CSV file successfully processed');
       })
     }
-    getStateCensusInJason=(path,callback)=>{
+    sortStateCensusInJasonAlphbetically=(path,callback)=>{
       csvToJason().fromFile(path).then(source=>{
         source.sort((a, b)=>{
           let x = a.State.toLowerCase();
@@ -68,9 +68,16 @@ class StateCensusAnalyser{
           if (x > y) {return 1;}
           return 0;
       })
-      callback(source[1].State)
+      callback(source[0].State)
     })
   }
+  sortMostPopulusToLeastPopulus=(path,callback)=>{
+    csvToJason().fromFile(path).then(source=>{
+    source.sort((a, b)=>{return b.Population - a.Population});
+   callback(null,source[0].Population)
+    fs.writeFileSync("StateCensusData.json",JSON.stringify(source,null,2)
+   )}
+  )}
 
 }
 module.exports=new StateCensusAnalyser();

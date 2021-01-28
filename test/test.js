@@ -105,6 +105,4 @@ describe('indian state code Mocha Test',()=> {
                 assert.equal(result,"Arunachal Pradesh")
         })
     })
-   
-
 });

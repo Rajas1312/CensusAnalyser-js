@@ -111,12 +111,16 @@ describe('indian state code Mocha Test',()=> {
         })
     })
     it('given a csv file path should pass the test when the sorting is sucessfull and first entry matches',()=> {
-        test.sortMostPopulusToLeastPopulus(path,(error,result)=>{
-            if (error){
-                console.log(error)
-            }else{
-                 assert.equal(result,199812341)
-            }
+        test.sortMostPopulusToLeastPopulus(path,(result)=>{
+                assert.equal(result,199812341)
+                console.log(result)
+        })
+    })
+    it('given a csv file path should pass the test when the sorting is sucessfull and first entry matches',()=> {
+        test.sortLeastPopulationDensity(path,(result)=>{
+            console.log(result)
+            assert.equal(result,52)
+                
         })
     })
 

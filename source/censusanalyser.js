@@ -71,12 +71,20 @@ class StateCensusAnalyser{
       callback(source[0].State)
     })
   }
-  sortMostPopulusToLeastPopulus=(path,callback)=>{
-    csvToJason().fromFile(path).then(source=>{
-    source.sort((a, b)=>{return b.Population - a.Population});
-   callback(null,source[0].Population)
-    fs.writeFileSync("StateCensusData.json",JSON.stringify(source,null,2)
-   )}
+    sortMostPopulusToLeastPopulus=(path,callback)=>{
+      csvToJason().fromFile(path).then(source=>{
+      source.sort((a, b)=>{return b.Population - a.Population});
+      callback(source[0].Population)
+      fs.writeFileSync("StateCensusData.json",JSON.stringify(source,null,2)
+    )}
+  )}
+    sortLeastPopulationDensity=(path,callback)=>{
+      csvToJason().fromFile(path).then(source=>{
+      source.sort((a, b)=>{return a.DensityPerSqKm - b.DensityPerSqKm}
+      );
+      fs.writeFileSync("StateCensusData.json",JSON.stringify(source,null,2))
+      callback(source[0].DensityPerSqKm)
+    }
   )}
 
 }
